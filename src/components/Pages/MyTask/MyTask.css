@@ -1,0 +1,8 @@
+.myTaskTable{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+}
+.taskName{
+    grid-column: 3 / span 9;
+}
