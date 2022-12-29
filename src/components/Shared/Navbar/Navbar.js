@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../context/AuthProvider';
 
 const Navbar = () => {
 
+  const {user, logOut} = useContext(AuthContext)
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const handleLogOut = () =>{
+      logOut()
+      .then(()=>{})
+      .catch(error => console.error(error))
+    }
 
     return (
         <div class="bg-black">
@@ -11,7 +20,7 @@ const Navbar = () => {
           <div class="relative flex items-center justify-between">
             <div class="flex items-center">
               <Link
-                href="/"
+                to="/"
                 aria-label="Company"
                 title="Company"
                 class="inline-flex items-center mr-8"
@@ -20,46 +29,60 @@ const Navbar = () => {
                   TaskBook
                 </span>
               </Link>
-              <ul class="flex items-center hidden space-x-8 lg:flex">
-                <li>
-                  <Link
-                    to="/"
-                    aria-label="Our product"
-                    title="Our product"
-                    class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-                  >
-                    Add Task
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/"
-                    aria-label="Product pricing"
-                    title="Product pricing"
-                    class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-                  >
-                    My Task
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/"
-                    aria-label="About us"
-                    title="About us"
-                    class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-                  >
-                    Completed Tasks
-                  </Link>
-                </li>
-              </ul>
+              {
+              user?.uid? 
+              <div className="d-flex">              <ul class="flex items-center hidden space-x-8 lg:flex">
+              <li>
+                <Link
+                  to="/addtask"
+                  aria-label="Our product"
+                  title="Our product"
+                  class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                >
+                  Add Task
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/mytask"
+                  aria-label="Product pricing"
+                  title="Product pricing"
+                  class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                >
+                  My Task
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/"
+                  aria-label="About us"
+                  title="About us"
+                  class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                >
+                  Completed Tasks
+                </Link>
+              </li>
+            </ul>
+              </div>
+              :
+              <>
+              </>
+            }
             </div>
             <ul class="flex items-center hidden space-x-8 lg:flex">
+            {
+              user?.uid? 
+              <div className="d-flex">
+                <button class="font-medium tracking-wide text-white px-5 py-2 rounded bg-teal-500" onClick={handleLogOut}>Sign Out</button>
+              </div>
+              :
+              <>
               <li>
                 <Link
                   to="/signin"
                   aria-label="Sign in"
                   title="Sign in"
-                  class="font-medium tracking-wide text-white px-5 py-2 rounded bg-teal-600"
+                  class="font-medium tracking-wide text-white px-5 py-2 rounded bg-teal-500"
                 >
                   Sign in
                 </Link>
@@ -67,13 +90,15 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/signup"
-                  class="inline-flex items-center justify-center font-medium tracking-wide  text-white px-5 py-2 rounded bg-teal-600"
+                  class="inline-flex items-center justify-center font-medium tracking-wide  text-white px-5 py-2 rounded bg-teal-500"
                   aria-label="Sign up"
                   title="Sign up"
                 >
                   Sign up
                 </Link>
               </li>
+              </>
+            }
             </ul>
             <div class="lg:hidden">
               <button
@@ -103,7 +128,7 @@ const Navbar = () => {
                     <div class="flex items-center justify-between mb-4">
                       <div>
                         <Link
-                          href="/"
+                          to="/"
                           aria-label="Company"
                           title="Task Book"
                           class="inline-flex items-center"
@@ -133,7 +158,7 @@ const Navbar = () => {
                       <ul class="space-y-4">
                         <li>
                           <Link
-                            href="/"
+                            to="/addtask"
                             aria-label="Our product"
                             title="Our product"
                             class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -143,7 +168,7 @@ const Navbar = () => {
                         </li>
                         <li>
                           <Link
-                            to="/"
+                            to="/mytask"
                             aria-label="Our product"
                             title="Our product"
                             class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"

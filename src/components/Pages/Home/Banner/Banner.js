@@ -16,7 +16,7 @@ const Banner = () => {
           </div>
           <div className="flex flex-col items-center md:flex-row">
             <a
-              href="/"
+              href="#addtask"
               className="inline-flex items-center justify-center px-6 py-3 mb-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto md:mr-4 md:mb-0 bg-teal-500 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
             >
               Add task Now
