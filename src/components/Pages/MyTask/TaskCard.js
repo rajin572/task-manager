@@ -16,7 +16,7 @@ const TaskCard = ({ reviews, handleDelete, handleCompleteDelete }) => {
           photoUrl: user.photoURL
         };
     console.log(completeTask);
-        fetch("http://localhost:5000/completeTask", {
+        fetch("https://task-manager-server-dusky.vercel.app/completeTask", {
           method: "POST",
           headers: {
             "content-type": "application/json",

@@ -9,7 +9,7 @@ const MyTask = () => {
   const [mytask, setMytask] = useState([]);
   const [loading, isLoading] = useState(true);
   useEffect(() => {
-    fetch(`http://localhost:5000/myTask?email=${user?.email}`)
+    fetch(`https://task-manager-server-dusky.vercel.app/myTask?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMytask(data);
@@ -20,7 +20,7 @@ const MyTask = () => {
   const handleDelete = id =>{
     const proceed = window.confirm('Are you sure, you want to delete this task');
     if(proceed){
-        fetch(`http://localhost:5000/myTask/${id}`, {
+        fetch(`https://task-manager-server-dusky.vercel.app/myTask/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())
@@ -36,7 +36,7 @@ const MyTask = () => {
 
 const handleCompleteDelete = id =>{
 
-        fetch(`http://localhost:5000/myTask/${id}`, {
+        fetch(`https://task-manager-server-dusky.vercel.app/myTask/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())
@@ -71,7 +71,7 @@ const handleCompleteDelete = id =>{
             ))}
           </div>
         ) : (
-          <h3 className="text-center">You Haven't Any Review</h3>
+          <h3 className="text-center">You Haven't Any Task</h3>
         )}
         </div>
       </div>

@@ -20,7 +20,7 @@ const AddTask = () => {
           photoUrl: user.photoURL
         };
     console.log(service);
-        fetch("http://localhost:5000/task", {
+        fetch("https://task-manager-server-dusky.vercel.app/task", {
           method: "POST",
           headers: {
             "content-type": "application/json",

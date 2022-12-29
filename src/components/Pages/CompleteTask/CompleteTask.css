@@ -1,0 +1,8 @@
+.myCompleteTaskTable{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+}
+.myCompletetaskName{
+    grid-column: 2 / span 10;
+}
