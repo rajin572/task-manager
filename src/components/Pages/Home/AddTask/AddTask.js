@@ -31,7 +31,7 @@ const AddTask = () => {
           .then((data) => {
             console.log(data);
             if (data.acknowledged) {
-              toast.success("Add Services Successfully!");
+              toast.success("Add Task Successfully!");
               form.reset();
             }
           })

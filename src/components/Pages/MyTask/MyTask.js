@@ -34,9 +34,23 @@ const MyTask = () => {
     }
 }
 
+const handleCompleteDelete = id =>{
+
+        fetch(`http://localhost:5000/myTask/${id}`, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.deletedCount > 0){
+                const remaining = mytask.filter(odr => odr._id !== id);
+                setMytask(remaining);
+            }
+        })
+}
+
   return (
     <div className=" min-h-screen mt-10">
-      <h2 className=" text-4xl text-center font-bold">My Tasks</h2>
+      <h2 className=" text-4xl text-center font-bold mb-10" >My Tasks</h2>
       <div>
         <div className="myTaskTable bg-gray-200 mx-auto lg:w-[90%] md:w-[95%] sm:w-full font-bold text-center">
           <p className="complete border-2 border-black">Complete</p>
@@ -52,6 +66,7 @@ const MyTask = () => {
                 key={task._id}
                 reviews={task}
                 handleDelete={handleDelete}
+                handleCompleteDelete={handleCompleteDelete}
               ></TaskCard>
             ))}
           </div>
