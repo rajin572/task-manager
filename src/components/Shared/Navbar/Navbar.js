@@ -158,52 +158,52 @@ const Navbar = () => {
                     </div>
                   </div>
                   <nav>
-                  {user?.uid ? (
-              <div className="d-flex">
-                {" "}
-                    <ul class="space-y-4">
-                      <li>
-                        <Link
-                          to="/addtask"
-                          aria-label="Our product"
-                          title="Our product"
-                          class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                          Add Task
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          to="/mytask"
-                          aria-label="Our product"
-                          title="Our product"
-                          class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                          My Task
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          to="/completeTask"
-                          aria-label="Product pricing"
-                          title="Product pricing"
-                          class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                          Completed Tasks
-                        </Link>
-                      </li>
-                    </ul>
-                    <div className="d-flex mt-5">
-                <button
-                  class="font-medium tracking-wide w-full text-white px-5 py-2 rounded bg-teal-500"
-                  onClick={handleLogOut}
-                >
-                  Sign Out
-                </button>
-              </div>
-              </div>
-            ) : (
-              <>
+                    {user?.uid ? (
+                      <div className="d-flex">
+                        {" "}
+                        <ul class="space-y-4">
+                          <li>
+                            <Link
+                              to="/addtask"
+                              aria-label="Our product"
+                              title="Our product"
+                              class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            >
+                              Add Task
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              to="/mytask"
+                              aria-label="Our product"
+                              title="Our product"
+                              class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            >
+                              My Task
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              to="/completeTask"
+                              aria-label="Product pricing"
+                              title="Product pricing"
+                              class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            >
+                              Completed Tasks
+                            </Link>
+                          </li>
+                        </ul>
+                        <div className="d-flex mt-5">
+                          <button
+                            class="font-medium tracking-wide w-full text-white px-5 py-2 rounded bg-teal-500"
+                            onClick={handleLogOut}
+                          >
+                            Sign Out
+                          </button>
+                        </div>
+                      </div>
+                    ) : (
+                      <>
                         <Link
                           to="/signin"
                           aria-label="Sign in"
@@ -220,8 +220,8 @@ const Navbar = () => {
                         >
                           <button>Sign up</button>
                         </Link>
-              </>
-            )}
+                      </>
+                    )}
                   </nav>
                 </div>
               </div>
